@@ -1,0 +1,80 @@
+### =========================
+### USER API
+
+
+### Get all users
+GET http://localhost:4000/user-api/users
+
+
+### Get user by MongoDB ObjectId
+GET http://localhost:4000/user-api/users/697dbc3d50a191a58fbfeb7b
+
+
+### Create new user
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+  "username": "matthew",
+  "password": "matthew",
+  "age": 21
+}
+
+
+### Update user by ObjectId
+PUT http://localhost:4000/user-api/users/697dbc3d50a191a58fbfeb7b
+Content-Type: application/json
+
+{
+  "username": "matthew",
+  "password": "matthew",
+  "age": 22
+}
+
+
+### Delete user by ObjectId
+DELETE http://localhost:4000/user-api/users/697dbc3d50a191a58fbfeb7b
+
+
+
+### Protected route (requires login first)
+GET http://localhost:4000/user-api/test
+
+
+### =========================
+### PRODUCT API
+### =========================
+
+GET http://localhost:4000/product-api/products
+### Create product
+POST http://localhost:4000/product-api/products
+Content-Type: application/json
+
+{
+  "pid": 2,
+  "productName": "apple",
+  "price": 20000
+}
+
+
+### Get all products
+GET http://localhost:4000/product-api/products
+
+
+### Get product by ObjectId
+GET http://localhost:4000/product-api/products/697dcd9ca32db2a22b9f835b
+
+
+### Update product by ObjectId
+PUT http://localhost:4000/product-api/products/697dcd9ca32db2a22b9f835b
+Content-Type: application/json
+
+{
+  "pid": 1,
+  "productName": "apple updated",
+  "price": 20000
+}
+
+
+### Get product by PID
+GET http://localhost:4000/product-api/products/pid/1
