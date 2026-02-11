@@ -1,0 +1,119 @@
+### creating user
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "firstName": "anurag",
+    "lastName": "verma",
+    "email": "anuragverma@gmail.com",
+    "password": "User@12345",
+    "profileImageUrl": "https://example.com/avatars/author.png"
+}
+
+
+### authenticating user
+###
+POST http://localhost:4000/user-api/authenticate
+Content-Type: application/json
+
+{
+    "email": "anuragverma@gmail.com",
+    "password": "User@12345",
+    "role":"USER"
+}
+
+
+### creating author
+###
+POST http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+    "firstName": "anurag",
+    "lastName": "vikas",
+    "email": "anuragvikas@gmail.com",
+    "password": "author@12345",
+    "profileImageUrl": "https://example.com/avatars/author.png"
+}
+
+### login author
+###
+POST http://localhost:4000/common-api/authenticate
+Content-Type: application/json
+
+{
+    "email": "anuragvikas@gmail.com",
+    "password": "author@12345",
+    
+}
+
+### create article (author)
+POST http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author": "69896c65b79fab2fe47572e4",
+    "title": "test article",
+    "category": "programming",
+    "content": "content of test article"
+}
+
+### read articles of  a author
+GET http://localhost:4000/author-api/articles/69896c65b79fab2fe47572e4
+
+### update article (author)
+PUT http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author": "69896c65b79fab2fe47572e4",
+    "articleId": "69897a9fdb992a3f5eccff45",
+    "title": "demo article",
+    "category": "programming",
+    "content": "content of demo article"
+}
+
+### update article (author)
+DELETE http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author": "69896c65b79fab2fe47572e4",
+    "articleId": "69897a9fdb992a3f5eccff45",
+    "isActive": false
+}
+
+### read all articles (user)
+GET http://localhost:4000/user-api/articles/69896c65b79fab2fe47572e4
+
+### test res
+GET http://localhost:4000/test
+
+### comment
+PUT http://localhost:4000/user-api/articles/69897a9fdb992a3f5eccff45
+Content-Type: application/json
+
+{
+    "author":"69896c65b79fab2fe47572e4",
+    "comment":"good"
+}
+
+### logout
+GET http://localhost:4000/common-api/logout
+
+### block users
+PUT http://localhost:4000/admin-api/block/69896a7fea2587d6436fb873
+
+### unblock users
+PUT http://localhost:4000/admin-api/unblock/69896a7fea2587d6436fb873
+
+
+### change password
+PUT http://localhost:4000/common-api/change-password
+Content-Type: application/json
+
+{
+    "email":"anuragvikas@gmail.com",
+    "oldPassword":"author@12345",
+    "newPassword":"vikas@12345"
+}
